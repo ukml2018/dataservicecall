@@ -13,7 +13,7 @@ driver = 'ODBC Driver 17 for SQL Server'
 def execute_query():
     try:
         print("Testing 1")
-        query = 'Select sf.sales_force_person_name, sf.sales_force_person_id,sf.outlet_id,sf.outlet_name,dt.sales_line_info, dt.area_code, dt.customer_address,ff.outlet_address, ff.customer_number, ff.area_code from dbo.sales_force_outlet_mapping_en sf, dbo.ff_dashboard_outlet_mapping_en ff, dbo.distribution_tracking_en dt where sf.outlet_id = ff.outlet_ID and sf.outlet_id = dt.outlet_ID and  sf.sales_force_person_id =10001 group by sf.outlet_id, sf.sales_force_person_id, sf.sales_force_person_name, dt.sales_line_info, dt.area_code, dt.customer_address,ff.outlet_address, ff.customer_number, ff.area_code' 
+        query = 'Select sf.sales_force_person_name, sf.sales_force_person_id,sf.outlet_id,sf.outlet_name,dt.sales_line_info, dt.area_code, dt.customer_address,ff.outlet_address, ff.customer_number, ff.area_code from dbo.sales_force_outlet_mapping_en sf, dbo.ff_dashboard_outlet_mapping_en ff, dbo.distribution_tracking_en dt where sf.outlet_id = ff.outlet_ID and sf.outlet_id = dt.outlet_ID and  sf.sales_force_person_id =10001 group by sf.outlet_id, sf.outlet_name, sf.sales_force_person_id, sf.sales_force_person_name, dt.sales_line_info, dt.area_code, dt.customer_address,ff.outlet_address, ff.customer_number, ff.area_code' 
         # Establish the database connection
         conn = pyodbc.connect(
             f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}'
